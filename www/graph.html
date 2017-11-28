@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Node Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+</head>
+<body>
+    <canvas id="data" width="600" height="250"></canvas>
+    <script>
+        // Set up chart
+        const ctx = document.getElementById('data').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Temperature',
+                    data: []
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time'
+                    }]
+                }
+            }
+        });
+
+        // Create data websocket URL
+        let server = window.location.href.replace('http', 'ws');
+        server = server.substring(0, server.lastIndexOf("/")) + '/data?count=100';
+
+        // Open websocket and listen for events
+        const ws = new WebSocket(server);
+        let len = 0;
+        ws.onmessage = event => {
+            // Append incoming message to chart
+            len += event.data.length;
+            const payload = JSON.parse(event.data);
+            myChart.data.labels.push(payload.metadata.time);
+            myChart.data.datasets[0].data.push(payload.payload_fields.temperature);
+            myChart.update();
+        };
+    </script>
+</body>
+</html>
