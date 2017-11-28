@@ -84,7 +84,7 @@ static void m_lora_init(void) {
  * @param p_app_eui    Pointer to application EUI
  * @param p_app_key    Pointer to application key
  */
-static bool m_lora_connect(const char * p_app_eui, const char * p_app_key) {
+static void m_lora_connect(const char * p_app_eui, const char * p_app_key) {
   bool joined = false;
     
   Serial.print(M_INFO);
