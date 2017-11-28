@@ -91,6 +91,9 @@ static void m_lora_connect(const char * p_app_eui, const char * p_app_key) {
   Serial.println("Sending OTAA join request to TTN");
   joined = lora.initOTAA(p_app_eui, p_app_key);
 
+  // Force SF7
+  lora.setDR(5);
+
   while(joined == false) {
     Serial.print(M_ERROR);
     Serial.println("Unable to join TTN using current EUIs");
