@@ -104,7 +104,7 @@ static void m_lora_connect(const char * p_app_eui, const char * p_app_key) {
 
 /** @brief Read temperature from temperature sensor
  */
-static int m_read_temperature() {
+static int m_read_temperature(void) {
   static int temp = 0;
 
   // TODO: read temperature from sensor
@@ -114,6 +114,8 @@ static int m_read_temperature() {
 }
 
 /** @brief Send temperature to TTN
+ * 
+ * @param temp  Temperature to send
  */
 static void m_send_temperature(int temp) {
   char ta[2];
