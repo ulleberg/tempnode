@@ -7,7 +7,7 @@ Simple temperature node example using Arduino UNO and the RN2483 LoRa module
 
 ## To be able to use this example with [IDE8](https://ide8.io/) you have to do the following:
 
-- Clone this repository to your IDE8 workspace
+- Clone this repository to an IDE8 workspace by clicking the "Open in IDE8" banner above.
 - Run setup.sh script to download required dependencies
 - Create a new application in [TTN](https://www.thethingsnetwork.org/)
 - Add payload format shown below to TTN application
