@@ -2,7 +2,7 @@
 Simple temperature node example using Arduino UNO and the RN2483 LoRa module
 
 
-[![Open in IDE8](https://img.shields.io/badge/Open%20in-IDE8-blue.svg)](https://staging.ide8.io/open?repo=https://github.com/joarolai/tempnode)
+[![Open in IDE8](https://img.shields.io/badge/Open%20in-IDE8-blue.svg)](https://ide8.io/open?repo=https://github.com/joarolai/tempnode)
 
 
 ## To be able to use this example with [IDE8](https://ide8.io/) you have to do the following:
